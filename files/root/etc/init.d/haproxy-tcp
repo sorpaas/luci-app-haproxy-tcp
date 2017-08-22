@@ -5,9 +5,7 @@ NAME=haproxy-tcp
 
 genline_srv(){
 	line="$1"
-	hash="$(echo -n $line | md5sum | cut -c1-6)"
-	hash="$(echo -n $line | tr -d '\t ' | cut -c1-8)__$hash"
-	echo "    server $hash  $line" | tr -d "\'"
+	echo "    server $line" | tr -d "\'"
 }
 
 boot() {
